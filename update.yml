@@ -1,0 +1,9 @@
+---
+- name: Update all the vms in web group
+  hosts: web
+  become: true
+  tasks:
+    - name: Update all the vms in web group
+      ansible.builtin.package:
+        name: "*"
+        state: latest

@@ -3,6 +3,10 @@
   hosts: web
   become: true
   tasks:
+    - name: Install firewalled
+      ansible.builtin.package:
+        name: firewalled
+        state: present
     - name: Install httpd
       ansible.builtin.package:
         name: httpd

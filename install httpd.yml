@@ -1,0 +1,21 @@
+---
+- name: Install httpd
+  hosts: web
+  tasks:
+    - name: Install httpd
+      ansible.builtin.package:
+        name: httpd
+        state: present
+    - name: Open ports
+      loop:
+        - 80/tcp
+        - 443/tcp
+      ansible.posix.firewalld:
+        port: "{{ item }}"
+        permanent: true
+        state: enabled
+        immediate: true
+    - name: Restart httpd
+      ansible.builtin.service:
+        name: httpd
+        state: restarted

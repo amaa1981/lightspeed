@@ -4,3 +4,7 @@
   tasks:
     - name: Ping all the web group
       ansible.builtin.ping:
+    - name: install httpd 
+      ansible.builtin.package:
+        name: httpd
+        state: present

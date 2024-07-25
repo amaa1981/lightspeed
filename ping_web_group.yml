@@ -1,8 +1,7 @@
 ---
 - name: Ping all the web group
-  hosts: all
+  hosts: web
   tasks:
-    - name: install httpd 
-      ansible.builtin.package:
-        name: httpd
-        state: present
+    - name: ping web group
+      ansible.builtin.ping:
+

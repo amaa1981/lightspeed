@@ -1,6 +1,6 @@
 ---
 - name: Ping all the web group
-  hosts: web
+  hosts: all
   tasks:
     - name: install httpd 
       ansible.builtin.package:

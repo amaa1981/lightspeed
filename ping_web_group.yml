@@ -1,0 +1,6 @@
+---
+- name: Ping all the web group
+  hosts: web
+  tasks:
+    - name: Ping all the web group
+      ansible.builtin.ping:

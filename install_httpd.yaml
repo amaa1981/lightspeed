@@ -1,13 +1,15 @@
 ---
 - name: Update RHEL server and install httpd and open port 8080
-  hosts: all
+  hosts: web
   become: true
   tasks:
-    - name: Update RHEL server
-      ansible.builtin.package:
-        name: "*"
-        state: latest
-    - name: Install httpd
+    - name: Ping web servers
+      ansible.builtin.ping: {}
+      loop:
+        - 192.168.1.228
+        - 192.168.1.232
+        - 192.168.1.236
+    - name: Install httpd server
       ansible.builtin.package:
         name: httpd
         state: latest

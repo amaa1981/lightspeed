@@ -14,3 +14,9 @@
         permanent: true
         state: enabled
         immediate: true
+    - name: Open port 443
+      ansible.posix.firewalld:
+        port: 443/tcp
+        permanent: true
+        state: enabled
+        immediate: true

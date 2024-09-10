@@ -9,7 +9,7 @@
         - 192.168.1.228
         - 192.168.1.232
         - 192.168.1.236
-    - name: Install httpd server
+    - name: Install httpd servers
       ansible.builtin.package:
         name: httpd
         state: latest

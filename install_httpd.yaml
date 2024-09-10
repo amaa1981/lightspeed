@@ -3,12 +3,6 @@
   hosts: web
   become: true
   tasks:
-    - name: Ping web servers
-      ansible.builtin.ping: {}
-      loop:
-        - 192.168.1.228
-        - 192.168.1.232
-        - 192.168.1.236
     - name: Install httpd servers
       ansible.builtin.package:
         name: httpd
@@ -16,12 +10,6 @@
     - name: Open port 8080
       ansible.posix.firewalld:
         port: 8080/tcp
-        permanent: true
-        state: enabled
-        immediate: true
-    - name: Open port 443
-      ansible.posix.firewalld:
-        port: 443/tcp
         permanent: true
         state: enabled
         immediate: true

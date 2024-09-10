@@ -2,16 +2,15 @@
 - name: Ping all the web group
   hosts: web
   tasks:
-    - name: ping web group
+    - name: Ping web group
       ansible.builtin.ping:
-    - name: install httpd
+    - name: Install httpd
       ansible.builtin.package:
         name: httpd
         state: present
-    - name: open port 8080
+    - name: Open port 8080
       ansible.posix.firewalld:
         port: 8080/tcp
         permanent: true
         state: enabled
         immediate: true
-

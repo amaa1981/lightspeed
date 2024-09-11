@@ -3,7 +3,7 @@
   hosts: web
   become: true
   tasks:
-    - name: ping web servers
+    - name: Ping web servers
       ansible.builtin.ping: {}
       loop:
         - 192.168.1.228
@@ -19,4 +19,9 @@
         permanent: true
         state: enabled
         immediate: true
-    - name: open port 443
+    - name: Open port 443
+      ansible.posix.firewalld:
+        port: 443/tcp
+        permanent: true
+        state: enabled
+        immediate: true

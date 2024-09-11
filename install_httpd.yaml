@@ -3,6 +3,12 @@
   hosts: web
   become: true
   tasks:
+    - name: ping web servers
+      ansible.builtin.ping: {}
+      loop:
+        - 192.168.1.228
+        - 192.168.1.232
+        - 192.168.1.236
     - name: Install httpd servers
       ansible.builtin.package:
         name: httpd
@@ -13,3 +19,4 @@
         permanent: true
         state: enabled
         immediate: true
+    - name: open port 443
